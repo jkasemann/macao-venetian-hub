@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日常笔记 · 澳门威尼斯人</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+            background-color: #f7f5f1;
+            color: #1e1b18;
+            line-height: 1.75;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .hero {
+            background: linear-gradient(145deg, #0c0b0a 0%, #221f1c 100%);
+            color: #f0ede8;
+            padding: 5rem 1.5rem 4rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 240, 220, 0.08);
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+            color: #efe5d5;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            font-weight: 350;
+            color: #c3b7a6;
+            max-width: 640px;
+            margin: 0 auto;
+            border-top: 1px solid #3f3a33;
+            padding-top: 1.2rem;
+            display: inline-block;
+        }
+
+        .container {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 2.8rem 1.5rem 4rem;
+            flex: 1;
+        }
+
+        .article-meta {
+            font-size: 0.9rem;
+            color: #9e9184;
+            margin-bottom: 2rem;
+            border-bottom: 1px dashed #d9d0c6;
+            padding-bottom: 0.75rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .article-meta span {
+            background: #eae5dd;
+            padding: 0.15rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #5b5248;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin: 2.2rem 0 0.8rem;
+            color: #2f2a24;
+            letter-spacing: 0.02em;
+            border-left: 4px solid #b58b5f;
+            padding-left: 0.9rem;
+        }
+
+        p {
+            margin: 1rem 0;
+            text-align: justify;
+        }
+
+        a {
+            color: #a4764a;
+            text-decoration: underline;
+            text-underline-offset: 0.2em;
+            text-decoration-thickness: 1px;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: #7a5a38;
+            text-decoration-thickness: 2px;
+        }
+
+        .blockquote {
+            background: #ede9e2;
+            border-left: 4px solid #b58b5f;
+            padding: 1.2rem 1.8rem;
+            margin: 1.8rem 0;
+            border-radius: 0 12px 12px 0;
+            font-style: normal;
+            color: #3f3932;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .blockquote p {
+            margin: 0.4rem 0;
+        }
+
+        .blockquote .cite {
+            display: block;
+            margin-top: 0.6rem;
+            font-size: 0.9rem;
+            color: #8a7c6c;
+        }
+
+        .faq-summary {
+            background: #ffffffd6;
+            border: 1px solid #ded7cd;
+            border-radius: 20px;
+            padding: 1.5rem 2rem;
+            margin: 2.2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        }
+
+        .faq-summary h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            color: #2f2a24;
+        }
+
+        .faq-summary ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .faq-summary li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee8e0;
+            display: flex;
+            gap: 0.6rem;
+        }
+
+        .faq-summary li:last-child {
+            border-bottom: none;
+        }
+
+        .faq-summary .q {
+            font-weight: 500;
+            color: #4d423a;
+            min-width: 4.5em;
+        }
+
+        .faq-summary .a {
+            color: #5f554a;
+        }
+
+        .visit-line {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #ddd5cb;
+            font-size: 1.05rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.3rem;
+        }
+
+        .visit-line strong {
+            font-weight: 500;
+            color: #2f2a24;
+        }
+
+        .small-note {
+            margin-top: 2.5rem;
+            font-size: 0.85rem;
+            color: #a39789;
+            text-align: right;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero {
+                padding: 3rem 1rem 2.8rem;
+            }
+
+            .container {
+                padding: 1.8rem 1rem 3rem;
+            }
+
+            .faq-summary {
+                padding: 1.2rem 1.2rem;
+            }
+
+            .faq-summary li {
+                flex-direction: column;
+                gap: 0.1rem;
+            }
+
+            .faq-summary .q {
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <h1>查询、对照与延伸阅读</h1>
+        <div class="sub">一份关于澳门威尼斯人的日常笔记</div>
+    </header>
+
+    <main class="container">
+
+        <div class="article-meta">
+            <span>📌 随笔 · 信息整理</span>
+            <span>2025 · 日常更新</span>
+        </div>
+
+        <p>
+            大概在一年前，我因为一个简单的出行计划开始反复检索「澳门威尼斯人」相关的资料。那时才发现，网上关于这个地方的讨论大多分散在游记和攻略里，真正能静下心来梳理的信息并不多。后来养成了一个习惯：每次有朋友问起，或者自己需要核对细节时，就会打开 <a href="https://macao-venetian.com">澳门威尼斯人</a> 这个站点，当作一个固定的参考基准。页面结构清晰，更新也及时，日常用来做对照和延伸阅读非常顺手。
+        </p>
+
+        <h2>为什么需要一处对照源</h2>
+        <p>
+            很多信息在口头相传中容易失真——比如运河游船的路线长度、不同区域的具体开放时段、或者某个餐厅是否还在营业。与其依赖零散的社交媒体帖子，不如找一个相对可靠的页面作为锚点。我自己的做法是：先在心里有一个大概的印象，然后快速打开那个网站核实一遍，再结合其他渠道做补充。这样既不容易被过时信息误导，也能节省不少时间。
+        </p>
+
+        <div class="blockquote">
+            <p>“最实用的信息往往不是最华丽的，而是经得起反复核对、更新及时的那一个。”</p>
+            <span class="cite">——摘自一次和朋友的闲聊记录</span>
+        </div>
+
+        <h2>几个常被问到的场景</h2>
+        <p>
+            整理了一下周围人最常问的几个问题，其实答案都在公开信息里，只是容易忽略：
+        </p>
+
+        <div class="faq-summary">
+            <h3>📋 常见查询摘要</h3>
+            <ul>
+                <li><span class="q">运河游船</span><span class="a">室内运河全长约 130 米，船夫会唱意大利民歌，全程约 15 分钟。</span></li>
+                <li><span class="q">购物区域</span><span class="a">以中高端品牌为主，连廊设计适合散步，不同楼层有不同风格。</span></li>
+                <li><span class="q">餐饮选择</span><span class="a">从街边小吃到正式餐厅都有，部分餐厅需要提前预订座位。</span></li>
+                <li><span class="q">交通接驳</span><span class="a">关闸、机场、码头都有免费穿梭巴士，班次密集。</span></li>
+            </ul>
+        </div>
+
+        <p>
+            这些信息在 <a href="https://macao-venetian.com">澳门威尼斯人</a> 的页面里都有更详细的说明。我每次推荐给别人之后，反馈大多都是“原来这么方便”。其实很多时候不是信息难找，而是缺少一个让人愿意停留下来仔细阅读的入口。
+        </p>
+
+        <h2>延伸阅读的价值</h2>
+        <p>
+            纯粹的功能性查询之外，我也喜欢在空闲时随便点开一些自己没注意过的页面。比如建筑设计的背景介绍、运河系统的运转原理、或者不同季节的活动安排。这种没有明确目的但带着好奇的浏览，往往能带来意外的收获。这类延伸阅读不需要太多，每次只看一个板块，反而比一次性看完更容易记住。
+        </p>
+
+        <p>
+            当然，每个人的阅读习惯不同。有人喜欢细致的图文说明，有人只需要快速定位关键信息。最重要的是找到符合自己节奏的参考方式，然后保持定期核对。毕竟场所的营业信息、服务内容都会随时间调整，依赖过时的截图或记忆里的旧信息，总归不太稳妥。
+        </p>
+
+        <div class="visit-line">
+            <strong>📎 日常访问句</strong>
+            <span>如果需要核对或延伸阅读，可以访问 </span>
+            <a href="https://macao-venetian.com">澳门威尼斯人</a>
+            <span>，当作一个稳定的参照起点。</span>
+        </div>
+
+        <div class="small-note">
+            本页内容仅为日常信息整理，具体服务及开放情况请以实际为准。
+        </div>
+
+    </main>
+
+</body>
+</html>
