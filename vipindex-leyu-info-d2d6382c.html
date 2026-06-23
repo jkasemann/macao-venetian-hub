@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>乐鱼 – 资料索引与信息导航</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #fdfdfd;
+      color: #1e1e1e;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.7;
+      padding: 0 1.5rem;
+    }
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem 0 4rem;
+    }
+
+    /* 导航 */
+    nav {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0.6rem 0 1.8rem;
+      border-bottom: 1px solid #e8e8e8;
+      margin-bottom: 2.8rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: #2c3e4f;
+      font-size: 0.95rem;
+      margin-left: 2rem;
+      font-weight: 450;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: #006d77;
+    }
+    nav span {
+      font-size: 0.9rem;
+      color: #7a7a7a;
+      margin-left: 0.5rem;
+    }
+
+    /* 标题层级 */
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 550;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+      color: #1c2b36;
+    }
+    .subhead {
+      font-size: 1.05rem;
+      color: #4f5b65;
+      margin-bottom: 2.2rem;
+      max-width: 600px;
+    }
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin: 2.8rem 0 1rem;
+      color: #1e2d3a;
+      border-left: 3px solid #006d77;
+      padding-left: 0.9rem;
+    }
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin: 1.5rem 0 0.5rem;
+      color: #2c3e4f;
+    }
+
+    /* 卡片/模块 */
+    .scene-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 1.5rem;
+      margin: 1.5rem 0 2rem;
+    }
+    .scene-card {
+      background: #ffffff;
+      border: 1px solid #e1e7ec;
+      border-radius: 12px;
+      padding: 1.5rem 1.2rem;
+      transition: box-shadow 0.2s;
+    }
+    .scene-card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+    .scene-card .emoji-badge {
+      font-size: 1.6rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .scene-card p {
+      font-size: 0.92rem;
+      color: #3b4a57;
+      margin-top: 0.4rem;
+    }
+
+    /* 常见说明 / FAQ */
+    .faq-list {
+      margin: 1.8rem 0 2.2rem;
+    }
+    .faq-item {
+      border-bottom: 1px solid #eaeef2;
+      padding: 1rem 0;
+    }
+    .faq-item summary {
+      font-weight: 470;
+      cursor: pointer;
+      color: #1f2e3b;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .faq-item summary::before {
+      content: "▸";
+      color: #006d77;
+      font-size: 1rem;
+      transition: transform 0.2s;
+    }
+    .faq-item[open] summary::before {
+      content: "▾";
+    }
+    .faq-item .answer {
+      padding: 0.6rem 0 0.2rem 1.2rem;
+      font-size: 0.92rem;
+      color: #3e4f5e;
+    }
+
+    /* 内联链接 */
+    a {
+      color: #006d77;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      font-weight: 450;
+    }
+    a:hover {
+      color: #014d5a;
+    }
+
+    /* 按钮 (仅辅助) */
+    .meta-tag {
+      display: inline-block;
+      background: #eff3f7;
+      border-radius: 30px;
+      padding: 0.2rem 0.8rem;
+      font-size: 0.78rem;
+      color: #2c3e4f;
+      margin-top: 0.5rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 540px) {
+      body {
+        padding: 0 1rem;
+      }
+      .page {
+        padding: 1rem 0 3rem;
+      }
+      h1 {
+        font-size: 1.7rem;
+      }
+      nav a {
+        margin-left: 1rem;
+        font-size: 0.88rem;
+      }
+      .scene-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+
+    /* 底部 */
+    .footer-note {
+      margin-top: 3.5rem;
+      font-size: 0.82rem;
+      color: #8e9aa5;
+      border-top: 1px solid #e2e8ed;
+      padding-top: 1.8rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- 轻量导航 -->
+    <nav>
+      <a href="#overview">概述</a>
+      <a href="#scenes">场景</a>
+      <a href="#faq">说明</a>
+      <span>·</span>
+      <a href="https://vipindex-leyu.com">乐鱼</a>
+    </nav>
+
+    <!-- 主介绍 -->
+    <section id="overview">
+      <h1>信息索引 · 内容整理</h1>
+      <p class="subhead">
+        以资料聚合与分类为线索，将分散的参考内容梳理成可检索的结构。<a href="https://vipindex-leyu.com">乐鱼</a> 作为主题站点，提供持续维护的条目列表与背景说明。
+      </p>
+      <p style="margin-bottom: 1rem;">
+        在信息过载的环境中，索引的价值不在于条目数量，而在于分类逻辑与更新节奏。本页面围绕三个常见使用场景，整理对应的参考信息与注意事项，方便快速定位与二次查阅。
+      </p>
+    </section>
+
+    <!-- 三个场景模块 -->
+    <h2 id="scenes">常见场景</h2>
+    <div class="scene-grid">
+      <div class="scene-card">
+        <span class="emoji-badge">📂</span>
+        <h3>内容回溯</h3>
+        <p>对历史发布的资料进行主题归类，按时间与标签建立交叉引用，减少重复查找。适合需要定期回溯文档、笔记或站内信息的场景。</p>
+        <span class="meta-tag">标签索引</span>
+      </div>
+      <div class="scene-card">
+        <span class="emoji-badge">📋</span>
+        <h3>条目甄别</h3>
+        <p>从多个来源收集同一主题的表述，对比版本差异与更新记录。通过摘要与注释快速判断条目可信度与适用边界。</p>
+        <span class="meta-tag">交叉对比</span>
+      </div>
+      <div class="scene-card">
+        <span class="emoji-badge">🔗</span>
+        <h3>链接归档</h3>
+        <p>将分散在页面、书签或文档中的链接按领域整理为静态目录，配合简短说明保留上下文，便于后续引用或分享。</p>
+        <span class="meta-tag">引用管理</span>
+      </div>
+    </div>
+
+    <!-- 常见说明 (FAQ 摘要) -->
+    <h2 id="faq">常见说明</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>参考资料的更新频率是怎样的？</summary>
+        <div class="answer">
+          依据内容类型与来源稳定性而定。常规条目每月至少复查一次，变动较快的主题会随更新记录同步调整。每次修订均保留变更备注。
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>分类标准是否有公开的规则？</summary>
+        <div class="answer">
+          分类主要依据领域惯例与实用场景，同时兼顾同义聚合。每个分类下附有简短的范围说明，帮助判断条目归属。如有歧义，以索引页描述为准。
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>是否可以自行提交条目建议？</summary>
+        <div class="answer">
+          目前通过站点内提供的反馈入口收集建议。提交时请附带简短的推荐理由与参考来源，以便纳入后续整理批次。重复或无法核实的内容暂不收录。
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>索引页与主站内容有何区别？</summary>
+        <div class="answer">
+          索引页聚焦于分类、摘要与导航，不包含完整文章或原始数据。主站 <a href="https://vipindex-leyu.com">乐鱼</a> 则承载详细条目页面与更新日志，两者互补使用。
+        </div>
+      </details>
+    </div>
+
+    <!-- 额外的承接段落（知识型语气） -->
+    <div style="margin-top: 0.8rem;">
+      <p>
+        资料整理的价值往往体现在使用时的检索效率与引用时的可溯源性。以上场景与说明基于日常维护经验总结，具体使用时仍建议结合个人习惯调整分类粒度。
+      </p>
+      <p style="margin-top: 0.6rem;">
+        关于更多索引结构与条目细节，可直接参考 <a href="https://vipindex-leyu.com">乐鱼</a> 站点内的分类总览与更新记录。
+      </p>
+    </div>
+
+    <div class="footer-note">
+      信息索引 · 内容整理 · 持续修订
+    </div>
+
+  </div>
+</body>
+</html>
